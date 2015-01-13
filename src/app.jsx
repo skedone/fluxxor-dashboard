@@ -9,6 +9,13 @@ var FluxMixin = Fluxxor.FluxMixin(React);
 var StoreWatchMixin = Fluxxor.StoreWatchMixin;
 
 var API = 'http://api.dev.dwillo.com';
+var $ = require('./utils/jquery.min.js');
+
+// --#- Change the Dwillo global namespace
+$.each($(".dw-component"), function(){
+	var data = $(this).data();
+	window.Dwillo[data['dwillo']] = data;
+})
 
 // --#- Flux paradigm.
 

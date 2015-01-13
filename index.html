@@ -5,7 +5,6 @@
     <title>Dwillo • Flux</title>
   </head>
   <body>
-    <div id="dashboard"></div>
     <script type="text/javascript">
     window.Dwillo = window.Dwillo || {};
     Dwillo.User = {
@@ -14,6 +13,12 @@
       id: '4102'
     }
     </script>
+    <div id="dashboard"></div>
+    <div class="dw-component" data-dwillo="User" data-username="johndoe" data-name="John Doe" data-id="4103">
+    <div class="dw-component" data-dwillo="userMenu" data-props='{"active_link":"home"}' data-global='["logged_user"]'></div>
+    <div class="body">
+      <div class="dw-component" data-dwillo="dataTable" data-props='{"rows":[{}]}'></div>
+    </div>
     <script src="build/dashboard.js"></script>
   </body>
 </html>
