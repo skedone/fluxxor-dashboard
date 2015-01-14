@@ -32,24 +32,22 @@ var constants = {
 
 
 var AuthStore = Fluxxor.createStore({
-  initialize: function() {
-    this.User = window.Dwillo.User;
-
+  initialize: function(args) {
+    this.props = args.props || {};
     this.bindActions(
       constants.AUTH_EXPIRED, this.onAuthExpiring
     );
   },
 
   onAuthExpiring: function(payload) {
-  	this.User = {};
-    this.User.name = 'John Doe';
+  	this.props = {};
+  	this.props.name = 'John Doe';
+  	this.props.id = '4013';
     this.emit("change");
   },
 
   getState: function() {
-    return {
-      User: this.User
-    };
+    return this.props;
   }
 });
 
@@ -60,7 +58,7 @@ var actions = {
 };
 
 var stores = {
-  AuthStore: new AuthStore()
+  AuthStore: new AuthStore(window.Dwillo.User)
 };
 
 var flux = new Fluxxor.Flux(stores, actions);
@@ -84,15 +82,16 @@ var App = React.createClass({
 		return flux.store("AuthStore").getState();
 	},
 	render: function(){
-		if(this.state.User.name != 'Edoardo Biraghi') {
-			alert("Username changed to " + this.state.User.name);
+		console.log(this.state);
+		if(this.state.name != 'Edoardo Biraghi') {
+			alert("Username changed to " + this.state.name);
 			var Change = '';
 		} else {
 			var Change = <p><a href="#" onClick={this.changeUsername}>Change username</a></p>;
 		}
 		return(
 			<div>
-			<p>Welcome {this.state.User.name} #{this.state.User.id}</p>
+			<p>Welcome {this.state.name} #{this.state.id}</p>
 			{Change}
 			</div>
 		)

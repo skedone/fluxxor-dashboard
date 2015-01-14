@@ -2,7 +2,7 @@
   "name": "fluxxor-dashboard",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,13 +16,15 @@
     "url": "https://github.com/skedone/fluxxor-dashboard/issues"
   },
   "homepage": "https://github.com/skedone/fluxxor-dashboard",
+  "devDependencies": {
+    "browserify": "^8.1.0",
+    "debowerify": "^1.2.0",
+    "reactify": "^0.17.1",
+    "watchify": "^2.2.1"
+  },
   "dependencies": {
     "fluxxor": "^1.5.1",
     "react": "^0.12.2",
     "react-router": "^0.11.6"
-  },
-  "devDependencies": {
-    "browserify": "^8.1.0",
-    "reactify": "^0.17.1"
   }
 }
