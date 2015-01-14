@@ -12,10 +12,17 @@ var API = 'http://api.dev.dwillo.com';
 var $ = require('./utils/jquery.min.js');
 
 // --#- Change the Dwillo global namespace
+var Dwillo = window.Dwillo || {};
 $.each($(".dw-component"), function(){
 	var data = $(this).data();
-	window.Dwillo[data['dwillo']] = data;
-})
+	Dwillo[data.dwillo] = {};
+	$.map(data, function(value, key){
+		if(key !== 'dwillo') {
+			Dwillo[data.dwillo][key] = value;
+		}
+	});
+});
+console.log(Dwillo);
 
 // --#- Flux paradigm.
 
