@@ -25549,7 +25549,6 @@ $.each($(".dw-component"), function(){
 console.log(Dwillo);
 
 // --#- Flux paradigm.
-
 var constants = {
   AUTH_EXPIRED: "AUTH_EXPIRED"
 };
@@ -25557,7 +25556,7 @@ var constants = {
 
 var AuthStore = Fluxxor.createStore({
   initialize: function(args) {
-    this.props = args.props || {};
+    this.props = args || {};
     this.bindActions(
       constants.AUTH_EXPIRED, this.onAuthExpiring
     );
@@ -25582,7 +25581,7 @@ var actions = {
 };
 
 var stores = {
-  AuthStore: new AuthStore(window.Dwillo.User)
+  AuthStore: new AuthStore(window.Dwillo.User.props)
 };
 
 var flux = new Fluxxor.Flux(stores, actions);
