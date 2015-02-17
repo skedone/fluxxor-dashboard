@@ -14,11 +14,13 @@
     }
     </script>
     <div id="dashboard"></div>
-    <div class="dw-component" data-dwillo="User" data-props='{"username":"johndoe","name":"John Doe", "id":"4103"}'>
-    <div class="dw-component" data-dwillo="userMenu" data-props='{"active_link":"home"}' data-global='["logged_user"]'></div>
-    <div class="body">
-      <div class="dw-component" data-dwillo="dataTable" data-props='{"rows":[{}]}'></div>
-    </div>
+    <div 
+      class="dw-component" 
+      id="user-menu" 
+      data-component="UserMenu" 
+      data-stores='["UserStore"]'
+      data-props='{"active_link":"home"}'
+    ></div>
     <script src="build/dashboard.js"></script>
   </body>
 </html>
