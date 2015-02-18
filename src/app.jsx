@@ -24,6 +24,6 @@ $.each(Dwillo.Components, function(value, key){
 		var Component = DwilloComponents[value];
 		var Stores = Dwillo.Components[value]['stores'] || [];
 		var props = Dwillo.Components[value]['props'] || [];
-		React.render(<Component stores={Stores} extras={props} />, document.getElementById(Dwillo.Components[value]['container']));
+		React.render(<Component extras={props} />, document.getElementById(Dwillo.Components[value]['container']));
 	}
 });
